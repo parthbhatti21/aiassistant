@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import time
 import ai
+import audio as a
 from gtts import gTTS
 def save_text_to_audio(text, filename):
     """Convert text to speech and save it as an audio file."""
@@ -13,13 +14,14 @@ def recognize_speech():
         print("Adjusting for ambient noise, please wait...")
         recognizer.adjust_for_ambient_noise(source)
         print("Listening...")
+        a.text_to_audio_and_play1('Ask any thing Im Listening..')
         audio = recognizer.listen(source)
     try:
         print("Recognizing...")
         text = recognizer.recognize_google(audio)
         print("You said: " + text)
         ai.ai(text=text)
-        filename="Hello.mp3"
+        # filename="Hello.mp3"
         # save_text_to_audio(text, filename)
         # print(f"Audio saved as {filename}")
         # '''with open('example.txt', 'w') as file:
